@@ -70,7 +70,7 @@ import CircularProgress from "@mui/material/CircularProgress";
 //   );
 // };
 
-export default  SearchComponent = () => {
+const SearchComponent = () => {
   const [query, setQuery] = useState("");
   const [results, setResults] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -186,8 +186,9 @@ export default  SearchComponent = () => {
     </div>
   );
 };
+export default  SearchComponent;
 
 function SearchElement(result){
   if(!result) return;
-  
+
 }

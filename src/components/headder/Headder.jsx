@@ -7,7 +7,7 @@ import UserIcon from './UserIcon'
 import { FiLogOut } from "react-icons/fi";
 import { useDispatch } from 'react-redux'
 import { logout } from '../../redux/userSlice'
-import SearchComponent from './SearchComponent'
+import SearchComponent from './SearchComponent.jsx'
 function Headder() {
 
     const status = useSelector(state => state.user.isLoggedIn);
