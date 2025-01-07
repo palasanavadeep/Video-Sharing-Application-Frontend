@@ -96,7 +96,7 @@ function VideoDetails({ video, setVideo }) {
   const [showAddToPlaylist, setShowAddToPlaylist] = useState(false);
 
   const loadVideoOwnerProfile = async () => {
-    setLoading(true);
+    // setLoading(true);
     try {
       if (video.owner) {
         const videoOwnerId = video.owner;
@@ -214,7 +214,7 @@ function VideoDetails({ video, setVideo }) {
               </p>
             </div>
           </div>
-          <div className="ml-auto float-end pr-5 space-x-2">
+          <div className="ml-auto float-end ld:pr-5 space-x-2">
             {/* // check */}
             <button
               // disabled={videoOwner._id === userData._id}   // check if the user is the owner of the video
@@ -239,7 +239,7 @@ function VideoDetails({ video, setVideo }) {
               onClick={() =>
                 navigate(`/channel-profile/${videoOwner._id}/videos`)
               }
-              className="bg-blue-600 text-white px-4 py-2 rounded-xl border-2 border-blue-800
+              className="hidden md:block bg-blue-600 text-white px-4 py-2 rounded-xl border-2 border-blue-800
            hover:bg-blue-700 transition-colors"
             >
               View Channel
@@ -446,7 +446,7 @@ function VideoSuggestions({ videoOwner }) {
   const [hasMore, setHasMore] = useState(true); // Track if more videos are available
 
   const loadSuggestedVideos = async () => {
-    setLoading(true);
+    // setLoading(true);
     const response = axios
       .get(`${import.meta.env.VITE_HOST}/api/video/channel`, {
         params: { page, limit: 5, channelId },
@@ -606,7 +606,7 @@ function VideoComments({ videoId }) {
     if (videoId) {
       loadComments();
     }
-  }, [videoId, comments]);
+  }, [videoId]);
 
   return loading ? (
     <Loader />

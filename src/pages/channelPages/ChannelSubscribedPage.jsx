@@ -36,9 +36,9 @@ function ChannelSubscribedPage() {
 
     return (
     <div className="w-full mx-auto space-y-2 m-2">
-       {subscribers.map((subscriber) => (
+       {subscribers.map((subscriber, indx) => (
         <SubscriberProfileComponent 
-            key={subscriber._id}
+            key={subscriber._id || indx}
             avatar={subscriber.channel.avatar}
             username={subscriber.channel.username}
             fullName={subscriber.channel.fullName}
