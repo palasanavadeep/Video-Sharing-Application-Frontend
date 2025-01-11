@@ -40,13 +40,14 @@ function Headder() {
                    <UserIcon avatar={userData.avatar}/>
                 </Link>
                 <Link to="/signout"
-                className=' h-12 w-12 rounded-full flex items-center shadow-md shadow-gray-600 bg-red-500 hover:scale-105 active:scale-95'>
+                className=' h-12 w-12 rounded-full flex items-center shadow-md shadow-gray-600 bg-red-500 hover:scale-105 active:scale-95'
+                onClick={()=> {
+                  dispatch(logout())
+                }}>
                   <abbr
                   title="Signout" 
                   className='m-auto'
-                  onClick={()=> {
-                    dispatch(logout())
-                  }}>
+                  >
                     <FiLogOut className='size-6 text-gray-100 '/>
                   </abbr>
                 </Link>
@@ -54,11 +55,11 @@ function Headder() {
             </>
             : <>
                 <Link to="/signin"
-                className="self-center px-8 py-3 rounded">
+                className="self-center px-8 py-3 rounded font-semibold bg-blue-600 text-white hover:bg-blue-700 active:scale-95">
                     Sign in
                 </Link>
                 <Link to="/signup"
-                className="self-center px-8 py-3 font-semibold rounded bg-blue-600 text-white">
+                className="self-center px-8 py-3 font-semibold rounded bg-blue-600 text-white hover:bg-blue-700 active:scale-95">
                   Sign up
                 </Link>
                 </>}

@@ -8,6 +8,8 @@ function showAlertFromErrorHtml(html) {
     const errorMessage = preElement ? preElement.textContent.split('\n')[0] : 'An error occurred';
   
     // Display the alert with the extracted message
+    console.log("Nav"+errorMessage);
+    
     const formatedError = errorMessage.substring(0,errorMessage.indexOf('at file'));
     alert(formatedError);
     return formatedError;

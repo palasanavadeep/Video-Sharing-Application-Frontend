@@ -4,16 +4,20 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useDispatch } from "react-redux";
 import { login } from "../../redux/userSlice";
+import Loader from "../../components/InfiniteLoading/Loader";
+import LoadingProgress from "../../utilities/LoadingProgress";
 
 function SignInPage() {
   const navigate = useNavigate();
 
   // const [data, setData] = React.useState({});
   const dispatch = useDispatch();
+  const [loading, setLoading] = React.useState(false);
 
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
     console.log("Form Submitted");
 
     const userOrEmail = e.target.username.value.includes('@') ? 'email' : 'username';
@@ -35,9 +39,14 @@ function SignInPage() {
       console.error('Error signing in:', error);
       window.alert('Error signing in. Please try again.');
     }
+    finally{
+      setLoading(false);
+    }
+
   };
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100 dark:bg-gray-900">
+    loading ? <LoadingProgress message={"Loading..."}/> : (
+      <div className="flex items-center justify-center min-h-screen bg-gray-100 dark:bg-gray-900">
       <div className="w-full max-w-md p-6 bg-white rounded-lg shadow-md dark:bg-gray-800">
         <h2 className="text-3xl font-bold text-center text-gray-800 dark:text-white mb-6">
           Sign In
@@ -96,6 +105,7 @@ function SignInPage() {
         </form>
       </div>
     </div>
+    )
   );
 }
 

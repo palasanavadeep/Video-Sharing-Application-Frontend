@@ -214,7 +214,7 @@ function VideoDetails({ video, setVideo }) {
               </p>
             </div>
           </div>
-          <div className="ml-auto float-end ld:pr-5 space-x-2">
+          <div className="flex ml-auto float-end lg:pr-5 space-x-2">
             {/* // check */}
             <button
               // disabled={videoOwner._id === userData._id}   // check if the user is the owner of the video
