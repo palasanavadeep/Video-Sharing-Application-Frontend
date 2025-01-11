@@ -29,10 +29,15 @@ function SignInPage() {
     
 
     try {
-      const response = await axios.post(`${import.meta.env.VITE_HOST}/api/user/login`, 
+      // const response = await axios.post(`${import.meta.env.VITE_HOST}/api/user/login`, 
+      //   data,{
+      //   withCredentials: true,
+      // });
+      const response = await axios.post(`/api/user/login`,
         data,{
         withCredentials: true,
       });
+      
       dispatch(login(response.data.user));
       navigate('/home');
     } catch (error) {
